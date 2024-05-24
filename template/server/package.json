@@ -1,7 +1,7 @@
 {
   "name": "@harmonia/server",
   "scripts": {
-    "dev": "nodemon --ignore ./database/fixtures index.js",
+    "dev": "node --watch index.js",
     "db:migrate": "node ./bin/migrate.js",
     "db:seed": "node ./bin/seed.js",
     "build": "node ./bin/migrate.js",
@@ -19,7 +19,6 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "jest": "^29.7.0",
-    "nodemon": "^3.1.0",
     "prettier": "3.2.5",
     "supertest": "^7.0.0"
   },
