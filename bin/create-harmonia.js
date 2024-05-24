@@ -138,7 +138,12 @@ const sGit = p.spinner();
 sGit.start("Starting git");
 
 execSync(
-  `cd ${destDir} && git init && git add -A && git commit -m "Initial commit" -n`
+  `cd ${destDir} \
+  && git init \
+  && git add -A \
+  && git commit -m "Initial commit" -n \
+  && git switch -c staging \
+  && git switch -c dev`
 );
 
 sGit.stop("Started git");
@@ -154,6 +159,8 @@ if (relative !== "") {
   console.log(`  ${i++}: ${bold(cyan(`cd ${relative}`))}`);
 }
 
+console.log(`  ${i++}: ${bold(cyan(`git remote add origin ...`))}`);
+console.log(`  ${i++}: ${bold(cyan(`git push --all -u`))}`);
 console.log(`  ${i++}: ${bold(cyan(`npm install`))}`);
 console.log(
   `  ${i++}: ${bold(

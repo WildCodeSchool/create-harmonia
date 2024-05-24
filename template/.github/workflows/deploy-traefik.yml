@@ -3,10 +3,10 @@ name: CD-traefik
 on:
   push:
     branches:
-      - main
+      - staging
   pull_request:
     branches:
-      - main
+      - staging
     types: [closed]
 
 jobs:
