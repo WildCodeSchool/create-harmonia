@@ -1,4 +1,4 @@
-const AbstractSeeder = require("./AbstractSeeder");
+import AbstractSeeder from "./AbstractSeeder";
 
 class UserSeeder extends AbstractSeeder {
   constructor() {
@@ -25,4 +25,4 @@ class UserSeeder extends AbstractSeeder {
 }
 
 // Export the UserSeeder class
-module.exports = UserSeeder;
+export default UserSeeder;

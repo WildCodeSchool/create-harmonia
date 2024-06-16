@@ -1,24 +1,37 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-
 // Import Faker library for generating fake data
-const { faker } = require("@faker-js/faker");
+import { faker } from "@faker-js/faker";
+
+import type { Faker } from "@faker-js/faker";
 
 // Import database client
-const database = require("../client");
+import database from "../client";
+
+import type { Result } from "../client";
 
 // Declare an object to store created objects from their names
-const refs = {};
+type Ref = object & { insertId: number };
+
+const refs: { [key: string]: Ref } = {};
+
+type SeederOptions = {
+  table: string;
+  truncate?: boolean;
+  dependencies?: (typeof AbstractSeeder)[];
+};
 
 // Provide faker access through AbstractSeed class
-class AbstractSeeder {
-  constructor({ table, truncate = true, dependencies = [] }) {
-    // thx https://www.codeheroes.fr/2017/11/08/js-classes-abstraites-et-interfaces/
-    if (this.constructor === AbstractSeeder) {
-      throw new TypeError(
-        "Abstract class 'AbstractSeed' cannot be instantiated directly"
-      );
-    }
+abstract class AbstractSeeder implements SeederOptions {
+  table: string;
+  truncate: boolean;
+  dependencies: (typeof AbstractSeeder)[];
+  promises: Promise<void>[];
+  faker: Faker;
 
+  constructor({
+    table,
+    truncate = true,
+    dependencies = [] as (typeof AbstractSeeder)[],
+  }: SeederOptions) {
     this.table = table;
 
     this.truncate = truncate;
@@ -28,10 +41,9 @@ class AbstractSeeder {
     this.promises = [];
 
     this.faker = faker;
-    this.refs = refs;
   }
 
-  async #doInsert(data) {
+  async #doInsert(data: { refName?: string } & object) {
     // Extract ref name (if it exists)
     const { refName, ...values } = data;
 
@@ -44,7 +56,7 @@ class AbstractSeeder {
     const sql = `insert into ${this.table}(${fields}) values (${placeholders})`;
 
     // Perform the query and if applicable store the insert id given the ref name
-    const [result] = await database.query(sql, Object.values(values));
+    const [result] = await database.query<Result>(sql, Object.values(values));
 
     if (refName != null) {
       const { insertId } = result;
@@ -53,7 +65,7 @@ class AbstractSeeder {
     }
   }
 
-  insert(data) {
+  insert(data: { refName?: string } & object) {
     this.promises.push(this.#doInsert(data));
   }
 
@@ -61,10 +73,12 @@ class AbstractSeeder {
     throw new Error("You must implement this function");
   }
 
-  getRef(name) {
+  getRef(name: string) {
     return refs[name];
   }
 }
 
 // Ready to export
-module.exports = AbstractSeeder;
+export default AbstractSeeder;
+
+export type { AbstractSeeder };

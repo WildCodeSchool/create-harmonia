@@ -1,8 +1,8 @@
-const AbstractSeeder = require("./AbstractSeeder");
+import AbstractSeeder from "./AbstractSeeder";
 
 // Import seeders that must be executed before this one
 // Follow your foreign keys to find the right order ;)
-const UserSeeder = require("./UserSeeder");
+import UserSeeder from "./UserSeeder";
 
 class ItemSeeder extends AbstractSeeder {
   constructor() {
@@ -28,4 +28,4 @@ class ItemSeeder extends AbstractSeeder {
 }
 
 // Export the ItemSeeder class
-module.exports = ItemSeeder;
+export default ItemSeeder;

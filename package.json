@@ -1,22 +1,21 @@
 {
-  "name": "create-harmonia",
-  "version": "5.0.10",
+  "name": "@wildcodeschool/create-js-monorepo",
+  "version": "7.0.0",
   "type": "module",
   "description": "Our pedagogical framework for the React-Express-MySQL cursus in Wild Code School",
-  "homepage": "https://github.com/wildcodeschool/create-harmonia#readme",
+  "homepage": "https://github.com/wildcodeschool/create-js-monorepo#readme",
   "bugs": {
-    "url": "https://github.com/wildcodeschool/create-harmonia/issues"
+    "url": "https://github.com/wildcodeschool/create-js-monorepo/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wildcodeschool/create-harmonia.git"
+    "url": "git+https://github.com/wildcodeschool/create-js-monorepo.git"
   },
-  "bin": {
-    "create-harmonia": "./bin/create-harmonia.js"
-  },
+  "bin": "./bin/create-js-monorepo.js",
   "keywords": [
     "react",
     "express",
+    "mysql",
     "framework"
   ],
   "author": "Wild Code School",

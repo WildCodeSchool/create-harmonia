@@ -12,12 +12,12 @@ const { version } = JSON.parse(
 );
 
 console.log(`
-${grey(`create-harmonia version ${version}`)}
+${grey(`create-js-monorepo version ${version}`)}
 `);
 
 if (process.argv[2] == null) {
   throw new Error(
-    "Please provide a project name, e.g. npm create harmonia@latest my-project"
+    "Please provide a project name, e.g. npm create @wildcodeschool/js-monorepo@latest my-project"
   );
 }
 
@@ -41,7 +41,7 @@ if (org == null) {
   }
 }
 
-p.intro("Welcome to Harmonia!");
+p.intro("Welcome to JS Monorepo!");
 
 if (name === ".") {
   const dir = await p.text({

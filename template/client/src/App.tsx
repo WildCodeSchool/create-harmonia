@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <header>
-        <h1 className="logo">Harmonia</h1>
+        <h1 className="logo">JS Monorepo</h1>
       </header>
 
       <nav className="navbar">
@@ -34,7 +34,7 @@ function App() {
           </li>
           <li>
             <a
-              href="https://github.com/WildCodeSchool/create-harmonia"
+              href="https://github.com/WildCodeSchool/create-js-monorepo"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -60,7 +60,7 @@ function App() {
 
       <main className="text-box">
         <hgroup className="block-primary">
-          <h2 className="block-primary-main">Harmonia</h2>
+          <h2 className="block-primary-main">JS Monorepo</h2>
           <p className="block-primary-sub">Votre framework JavaScript</p>
         </hgroup>
         <a

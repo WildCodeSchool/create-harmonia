@@ -1,15 +1,15 @@
 {
-  "name": "harmonia",
+  "name": "@wildcodeschool/js-monorepo",
   "version": "0.0.1",
   "private": true,
   "description": "",
-  "homepage": "https://github.com/WildCodeSchool/harmonia#readme",
+  "homepage": "https://github.com/WildCodeSchool/js-monorepo#readme",
   "bugs": {
-    "url": "https://github.com/WildCodeSchool/harmonia/issues"
+    "url": "https://github.com/WildCodeSchool/js-monorepo/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WildCodeSchool/harmonia.git"
+    "url": "git+https://github.com/WildCodeSchool/js-monorepo.git"
   },
   "workspaces": ["client", "server"],
   "scripts": {
@@ -27,8 +27,8 @@
   "author": "WildCodeSchool",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.7.3",
-    "@commitlint/cli": "^19.2.2",
+    "@biomejs/biome": "1.8.1",
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "concurrently": "^8.2.2",
     "husky": "^9.0.11",
